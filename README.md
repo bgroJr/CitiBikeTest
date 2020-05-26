@@ -1,4 +1,4 @@
-# :bike: CitiBike UI Test Examples
+# :statue_of_liberty: :bike: CitiBike UI Test Examples
 
 Example UI tests for the [Citi Bike](https://www.citibikenyc.com) web application. 
 
@@ -30,6 +30,21 @@ $ kotlinc -script TestRunner.main.kts
 
 The tests are defined in **CitiBike.kts**. The tests interact with the Citi Bike web application.
 
+Each relevant page of the web application is represented by a class which implements methods of
+interacting with and retrieving information from the page. These classes are an instance of 
+the [Page Object Model](https://martinfowler.com/bliki/PageObject.html) design pattern. 
+
 **TestRunner.main.kts** contains a minimal test runner using
 [JUnitCore](https://junit.org/junit4/javadoc/latest/org/junit/runner/JUnitCore.html). 
+
+## .main.kts
+
+By giving a Kotlin file the extension ".main.kts", when you run the file, the special extension will
+trigger Kotlin's experimental scripting functionality. The experimental functionality includes the 
+special annotation "@file:DependsOn" to specify external dependencies, and "@file:Import" to specify
+internal dependencies.
+
+Specifying the dependencies at the top of the script saves some work that would otherwise be done
+with a project build tool and its many associated scripts / configurations. Looking at you, 
+[Gradle](https://gradle.org) :elephant: :roll_eyes:
 
